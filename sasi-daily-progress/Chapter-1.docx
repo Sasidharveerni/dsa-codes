@@ -3,3 +3,90 @@
 1. From today (October) 26th, posting everyday's update
 2. Starting Striver's A2Z sheet.
 3. This week basics, loops
+
+Date: 27th October, 2025 
+Duration: 1:30 hrs
+
+Patterns Concept: Completed 6 patterns today!
+
+
+package p1;
+
+public class Patterns {
+	
+	public static void pattern1(int n, int m) {
+		for(int i = 0; i < n; i++) {
+			System.out.print('\n');
+			for(int j = 0; j < m; j++) {
+				
+				System.out.print("*");
+			}
+		}
+	}
+	
+	public static void pattern2(int m, int n) {
+		for(int i = 0; i < n; i++) {
+			for(int j = i ; j < m; j++) {
+				//System.out.print("\n");
+				System.out.print("*");
+			}
+			
+			System.out.print("\n");
+		}
+	}
+	
+	public static void pattern3(int m, int n) {
+		for(int i = n - 1; i >= 0; i--) {
+			
+			for(int j = m - 1; j > i - 1; j--) {
+				System.out.print("*");
+			} 
+			System.out.print("\n");
+			
+		}
+	}
+	
+	public static void pattern4(int m, int n) {
+		for(int i = n - 1; i >= 0; i--) {
+			for(int j = m - 1; j > i - 1; j--) {
+				System.out.print(i);
+			}
+			System.out.print("\n");
+		}
+	}
+	
+	public static void pattern5(int m, int n) {
+		int k = 1;
+		for(int i = n - 1; i >= 0; i--) {
+			for(int j = m - 1; j > i - 1 ; j--) {
+				System.out.print(k);
+				k++;
+			}
+			System.out.print('\n');
+			k = 1;
+		}
+	}
+	
+	public static void pattern6(int m, int n) {
+		int k = 1;
+		for(int i = 0; i < n; i++) {
+			for(int j = m - 1; j > i - 1; j--) {
+				System.out.print(k);
+				k++;
+			}
+			System.out.print('\n');
+			k = 1;
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	//	pattern1(3, 4);
+		// pattern2(6,6);
+		//pattern3(6, 6);
+		//pattern5(5, 5);
+		pattern6(5, 5);
+	}
+
+}
