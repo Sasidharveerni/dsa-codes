@@ -78,6 +78,182 @@ public class Patterns {
 			k = 1;
 		}
 	}
+	public static void pattern7(int n) {
+		for(int i = 0; i < n; i++) {
+			
+			for(int j = 0; j <  n-i-1; j++) {
+				System.out.print(' ');
+			}
+				
+				for(int k = 0; k < 2 *i+1; k++) {
+					
+					System.out.print("*");
+				}
+				
+				
+				for(int j = 0; j <  n-i-1; j++) {
+					System.out.print(' ');
+				}
+				System.out.print('\n');
+		}
+		
+		// we need 5 rows , 1 , 3, 5, 7, 9 that means we should print 9 stars in the last row
+		
+					// that means 2*i+1 for each row until last row
+					// 2*(n-1) + 1 -> 9 (2*n - 1) stars unless previous patterns we used System.out.print('\n') -> new line
+					// but in this case we need spaces to reach mid point we can't reach mid point if we don't use spaces
+					// unless you create an array!
+					
+					// so if you observe -> (n - i - 1) + 2i + 1 + (n - i - 1) -> 2n -2i -2 + 2i + 1 -> 2 * n - 1
+					
+					// As I mentioned previously we need to print 2 * (n - 1) + 1 stars so i starts from 0 so that's why we used
+					
+					// 3 loops so directly you converted 2 * n - 1 to 3 loops since you need to subtract 2 *i + 1 to print odd stars
+					// 2*n -1 - 2*i + 1 -> 2*n  - 2*i -> 2*(n - i) so you use 2 n-i for spaces since loops start from 0, -> n-i-1 you 
+					// use 2 times
+	} 
+	
+	public static void pattern8(int n) {
+		for(int i = n-1; i >= 0; i--) {
+			// we need 5 rows similarly 1,3,5,7,9 -> we should print 9 stars first
+			// we should reverse the outer for loop that's it
+			for(int j = 0; j < n-i-1; j++) {
+				System.out.print(' ');
+			}
+			for(int j = 0; j < 2*i + 1; j++) {
+				System.out.print('*');
+			}
+			for(int j = 0; j < n-i-1; j++) {
+				System.out.print(' ');
+			}
+			System.out.print('\n');
+		   
+		}
+	}
+	
+	public static void pattern9(int n) {
+		// This is simple you should mix both patterns 
+for(int i = 0; i < n; i++) {
+			
+			for(int j = 0; j <  n-i-1; j++) {
+				System.out.print(' ');
+			}
+				
+				for(int k = 0; k < 2 *i+1; k++) {
+					
+					System.out.print("*");
+				}
+				
+				
+				for(int j = 0; j <  n-i-1; j++) {
+					System.out.print(' ');
+				}
+				System.out.print('\n');
+		}
+
+for(int i = n-1; i >=0; i--) {
+	
+	for(int j = 0; j <  n-i-1; j++) {
+		System.out.print(' ');
+	}
+		
+		for(int k = 0; k < 2 *i+1; k++) {
+			
+			System.out.print("*");
+		}
+		
+		
+		for(int j = 0; j <  n-i-1; j++) {
+			System.out.print(' ');
+		}
+		System.out.print('\n');
+}
+	}
+	
+	public static void pattern10(int n) {
+		// This we don't need spaces we just need to use new lines properly
+		// we need to print 
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j <= i; j++) {
+				System.out.print('*');
+			}
+			System.out.print('\n');
+		}
+		for(int i = n-2; i >= 0; i--) {
+			for(int j = 0; j < i; j++) {
+				System.out.print('*');
+			}
+			System.out.print('\n');
+		}
+	}
+	
+	public static void pattern11(int n) {
+		for(int i = 0; i < n; i++) {
+			if(i % 2 == 0) {
+				
+				for (int j = 0; j <= i; j++) {
+				if(j % 2 == 0) {
+					System.out.print('1');
+					
+				} else {
+					System.out.print('0');
+				}
+				}
+			} 
+			else {
+				for (int j = 0; j <= i; j++) {
+					if(j % 2 == 0) {
+						
+						System.out.print('0');
+					} else {
+						System.out.print('1');
+					}
+				}
+			}
+			System.out.print('\n');
+		}
+	}
+	
+	public static void pattern12(int n) {
+		// This pattern contains 2 parts it's kind of mirroring pattern
+		// you need to use 2 loops -> 1 loop for normal numbering then another loop for reverse printing
+		//  6 spaces, 4 spaces, 2 spaces, 0 spaces -> 6, 4, 2, 0 -> 2 * n - 2
+		// 
+		
+		int spaces = 2 * n - 2;
+		
+//		for(int i = 0 ; i < n; i++) {
+//			for(int j = 0; j <=  i ; j++) {
+//				System.out.print('*');
+//			}
+//			for(int j = 0; j < spaces; j++) {
+//				System.out.print(' ');	
+//			} 
+//			for(int j = i; j >= 0; j--) {
+//				System.out.print('*');
+//			}
+//			spaces -= 2;
+//		
+//			System.out.print('\n');
+//		}
+		
+		for(int i = 1 ; i <= n -1; i++) {
+			for(int j = 1; j <  i + 1 ; j++) {
+				System.out.print(j);
+			}
+			for(int j = 1; j < spaces - 1; j++) {
+				System.out.print(' ');	
+			} 
+			for(int j = i ; j >= 1; j--) {
+				System.out.print(j);
+			}
+			System.out.print('\n');
+			spaces -= 2;
+		
+		}
+		
+		
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -87,6 +263,12 @@ public class Patterns {
 		//pattern3(6, 6);
 		//pattern5(5, 5);
 		pattern6(5, 5);
+		//	pattern7(5);
+		// pattern8(5);
+	//	pattern9(5);
+		//pattern10(5);
+		//pattern11(5);
+		pattern12(5);
 	}
 
 }
