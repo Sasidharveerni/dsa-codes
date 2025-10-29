@@ -4,12 +4,6 @@
 2. Starting Striver's A2Z sheet.
 3. This week basics, loops
 
-Date: 27th October, 2025 
-Duration: 1:30 hrs
-
-Patterns Concept: Completed 6 patterns today!
-
-
 package p1;
 
 public class Patterns {
@@ -78,6 +72,7 @@ public class Patterns {
 			k = 1;
 		}
 	}
+	
 	public static void pattern7(int n) {
 		for(int i = 0; i < n; i++) {
 			
@@ -236,6 +231,13 @@ for(int i = n-1; i >=0; i--) {
 //		
 //			System.out.print('\n');
 //		}
+		// I am complicating things, here the concept is simple you have to reduce the spaces 
+		// by 2 on each iteration of outer loop right, you don't need to reduce the space on inner loop
+		// because outer loop already iterating if you again iterate in inner loops it will mess up right..?
+		
+		// in above pattern we used spaces on both sides so that's why we have filled 2 spaces using inner loops
+		// so think in depth or more clearly to build up the logic, don't simply follow previous pattern's logic
+		
 		
 		for(int i = 1 ; i <= n -1; i++) {
 			for(int j = 1; j <  i + 1 ; j++) {
@@ -254,6 +256,129 @@ for(int i = n-1; i >=0; i--) {
 		
 		
 	}
+	
+	public static void pattern13(int n) {
+		int k = 1;
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j <= i; j++) {
+				System.out.print(k);
+				k++;
+			}
+//			k++;
+			System.out.print('\n');
+		}
+	}
+	
+	public static void pattern14(int n) {
+		char val = 65;
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j <= i; j++) {
+				System.out.print(val);
+				val++;
+			}
+			System.out.print('\n');
+			val = 65;
+		}
+	}
+	
+	public static void pattern15(int n) {
+		char val = 65;
+		for(int i = n; i >= 0; i--) {
+			for(int j = 0; j <= i; j++) {
+				System.out.print(val);
+				val++;
+			}
+			System.out.print('\n');
+			val = 65;
+		}
+	}
+	
+	public static void pattern16(int n) {
+		char val = 65;
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j <= i; j++) {
+				System.out.print(val);
+			}
+			val++;
+			System.out.print('\n');
+		}
+	}
+	
+	public static void pattern17(int n) {
+		char val = 65;
+		// same like the pattern 7 for n = 5 -> 1, 3, 5, 7, 9 -> 2*(n-1) + 1 -> divide by two since two spaces needed 
+		// n - 1
+		for(int i = 0; i < n; i++) {
+			val = 65;
+			for(int j = 0; j < n-i-1; j++) {
+				System.out.print(' ');
+			} 
+			for(int j = 0; j < 2*i + 1; j++) {
+				System.out.print(val);
+				if(j < i) {
+					val++;
+				} else  {
+					
+					val--;
+					
+				}
+			} for(int j = 0; j < n-i-1; j++) {
+				System.out.print(' ');
+				
+			}
+		
+			System.out.print('\n');
+		}
+	}
+	public static void pattern18(int n) {
+		char val = 69;
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j <= i; j++) {
+				System.out.print(val);
+				
+			val++;
+			if( i == j) {
+				val = 69;
+			}
+			}
+			val-= i + 1;
+			System.out.print('\n');
+		}
+	}
+	
+	public static void pattern19(int n) {
+		// this pattern we should inject spaces in between 2, 4, 6, 8, 10 - all even spaces you have to inject
+		int spaces = 0;
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j < n-i; j++) {
+				System.out.print('*');
+			}
+			for(int j = 0; j  < spaces; j++) {
+				
+				System.out.print(' ');
+			}
+			for(int j = 0; j < n-i; j++) {
+				System.out.print('*');
+			}
+			System.out.print('\n');
+			spaces += 2;
+		}
+		
+		spaces = 2*n + 2;
+		for(int i = 0; i < n + 1; i++) {
+			for(int j = 0; j < i; j++) {
+				System.out.print('*');
+			}
+			for(int j = 0; j < spaces ; j++) {
+				System.out.print(' ');
+			}
+			for(int j = 0; j < i; j++) {
+				System.out.print('*');
+			}
+			spaces -= 2;
+			System.out.print('\n');
+		}
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -262,13 +387,21 @@ for(int i = n-1; i >=0; i--) {
 		// pattern2(6,6);
 		//pattern3(6, 6);
 		//pattern5(5, 5);
-		pattern6(5, 5);
-		//	pattern7(5);
+		
+		// pattern6(5, 5);
+	//	pattern7(5);
 		// pattern8(5);
 	//	pattern9(5);
 		//pattern10(5);
 		//pattern11(5);
-		pattern12(5);
+	//	pattern12(5);
+	//	pattern13(5);
+		// pattern14(5);
+		// pattern15(5);
+	//	pattern16(5);
+	//	pattern17(5);
+		// pattern18(5);
+		pattern19(10);
 	}
 
 }

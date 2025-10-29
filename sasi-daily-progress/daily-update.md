@@ -5,3 +5,7 @@
 #OCTOBER 28 
 
 -- Today I have solved another 6 patterns from DSA sheet as part of daily DSA challenge!
+
+#OCTOBER 29
+
+-- Today I have solved another 7 patterns from DSA sheet as part of daily DSA challenge!
