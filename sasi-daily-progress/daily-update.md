@@ -13,3 +13,7 @@
 #OCTOBER 30
 
 -- Today I have solved another 3 patterns from DSA sheet marking completion of my 22 pattern questions, and I revised Java Collections today.
+
+#OCTOBER 31
+
+-- Today I have solved 3 basic problems from DSA sheet
