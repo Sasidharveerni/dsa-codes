@@ -17,3 +17,7 @@
 #OCTOBER 31
 
 -- Today I have solved 3 basic problems from DSA sheet
+
+#NOV 1
+
+-- Today I have solved remaining basic problems, and basic recursion problems from DSA sheet.

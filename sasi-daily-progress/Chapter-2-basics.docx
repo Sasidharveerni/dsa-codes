@@ -30,25 +30,109 @@ public class Basics {
 	public static boolean palindrome(int n) {
 		int temp = n;
 		int num = 0;
-		int cnt = 0;
 		int rem = 0;
 		while(temp != 0) {
 			rem = temp % 10;
 			
 			temp = temp / 10;
-			cnt++;
+			
 		//System.out.println("Reminder " + rem);
 			num = num * 10 + rem;
 		}
 		if( num != n) return false; 
 		else return true;
 	}
+public static boolean isPrime(int num) {
+	for(int i = 2; i < num; i++) {
+		if(num % i == 0) return false;
+	}
+	return true;
+}
+
+public static boolean isArmStrong(int num) {
+	int temp = num;
+	int sum = 0;
+	int cnt = digitCount(num);
+	while(temp != 0) {
+		int rem = temp % 10;
+		sum += Math.pow(rem, cnt);
+		temp = temp / 10;
+	}
+	if(sum == num) return true;
+	else return false;
+}
+
+public static int gcdofNum(int num1, int num2) {
+	int gcd = 1;
+	
+	for(int i = 1; i <= Math.min(num2, num1); i++) {
+		if(num1 % i == 0 && num2 % i == 0) {
+			 gcd = i;
+		}
+	}
+return gcd;
+}
+public static void divisors(int num) {
+	for(int i = 1; i <= num; i++) {
+		if(num % i == 0) {
+			System.out.println("The divisors are: "+i);
+		}
+	}
+	
+}
+
+// ------------------------------------- Basic Recursion --------------------------------
+
+public static void printNtimes(int num, int i) {
+	if(num == i - 1) return;
+	
+	System.out.println("Basic Recursion : printed: " + i + "times");
+	printNtimes(num, i + 1);
+}
+
+public static void print1toN(int num, int i) {
+	if(num == i) return;
+	
+	System.out.println(i+1);
+	print1toN(num, i+1);
+}
+
+public static void printNto1(int num, int i) {
+	if(num == i) return;
+	System.out.println(num);
+	printNto1(num - 1, i);
+}
+
+public static int sumofFirstN(int num, int i) {
+	if(num == i - 1) return 0;
+	
+	return i + sumofFirstN(num, i + 1);
+	
+}
+
+public static int factorialofNnum(int num, int i) {
+	if(num == i) return 1;
+	
+	return num * factorialofNnum(num - 1, i);
+}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
      //  System.out.println(digitCount(9875455));
        //System.out.println(reverseNum(10400));
-		System.out.println(palindrome(1331));
+	//	System.out.println(palindrome(1331));
+		//System.out.println(isPrime(113));
+//		divisors(24);
+//		System.out.println(isArmStrong(9474));
+//		System.out.println(gcdofNum(2, 4));
+//		printNtimes(5, 1);
+	//	print1toN(10, 0);
+		// printNto1(10, 0);
+		//System.out.println(sumofFirstN(10, 1));
+		
+		System.out.println(factorialofNnum(5, 1));
 	}
+	
+	
 
 }
