@@ -113,7 +113,38 @@ public static int sumofFirstN(int num, int i) {
 public static int factorialofNnum(int num, int i) {
 	if(num == i) return 1;
 	
-	return num * factorialofNnum(num - 1, i);
+	return num * factorialofNnum(num - 1, i); 
+}
+
+public static void reverseArray(int[] num, int start, int end) {
+    if(start < end) {
+    	int temp = num[start];
+    	num[start] = num[end];
+    	num[end] = temp;
+    	reverseArray(num, start + 1, end - 1);
+    }
+}
+
+public static void printArray(int[] num) {
+	reverseArray(num, 0, num.length - 1);
+	for(int i = 0; i < num.length; i++) {
+		System.out.print(num[i] + " ");
+	}
+}
+
+public static boolean isPalindrome(String s, int start, int end) {
+	if(start == end) return true;
+	
+	if(s.charAt(start) == s.charAt(end)) return true;
+	
+	if(s.charAt(end) != s.charAt(start)) return false;
+	
+	return isPalindrome(s, start+1, end - 1);
+}
+
+public static int recursionFabinocci(int n) {
+	if(n <= 1) return n;
+	return recursionFabinocci(n - 1) + recursionFabinocci(n-2);
 }
 
 	public static void main(String[] args) {
@@ -130,8 +161,16 @@ public static int factorialofNnum(int num, int i) {
 		// printNto1(10, 0);
 		//System.out.println(sumofFirstN(10, 1));
 		
-		System.out.println(factorialofNnum(5, 1));
+	//	System.out.println(factorialofNnum(5, 1));
+//		int[] num = {1,2,3,4,5};
+//		printArray(num);
+		
+//		System.out.print(isPalindrome("ABCDCBA", 0, 6));
+//		System.out.print(isPalindrome("ABCDCAA", 0, 6));
+		System.out.println(recursionFabinocci(5));
+		
 	}
+	
 	
 	
 

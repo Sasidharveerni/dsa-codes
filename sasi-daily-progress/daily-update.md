@@ -21,3 +21,7 @@
 #NOV 1
 
 -- Today I have solved remaining basic problems, and basic recursion problems from DSA sheet.
+
+#NOV 2
+
+-- Today I have solved remaining basic problems which completed Step 1 in A2Z DSA sheet - Step 1 Learn the Basics
