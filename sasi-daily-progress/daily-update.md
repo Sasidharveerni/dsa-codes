@@ -25,3 +25,11 @@
 #NOV 2
 
 -- Today I have solved remaining basic problems which completed Step 1 in A2Z DSA sheet - Step 1 Learn the Basics
+
+#NOV 3
+
+-- Today I am unable to solve as I am in travel
+
+#NOV 4
+
+-- Today I started Step1 of A2Z dsa sheet, solved only 1 sorting problem.. 
