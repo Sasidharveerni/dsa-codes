@@ -33,3 +33,15 @@
 #NOV 4
 
 -- Today I started Step1 of A2Z dsa sheet, solved only 1 sorting problem.. 
+
+#NOV 5
+
+-- Went to Swami's Padi Puja unable to solve
+
+#NOV 6
+
+-- This was my pure negligence 
+
+#NOV 7
+
+-- Today I solved Selection Sort, Insertion Sort problems

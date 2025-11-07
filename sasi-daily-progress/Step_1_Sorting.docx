@@ -4,29 +4,104 @@ public class Sorting {
 	
 	public static void bubbleSort(int[] nums) {
 		for(int i = nums.length - 1; i >= 0; i--) {
+			boolean swapped = false;
 			for(int j = 0; j < i; j++) {
 				if(nums[j] > nums[j + 1]) {
 					int temp = nums[j];
 					nums[j] = nums[j + 1];
 					nums[j + 1] = temp;
+					swapped = true;
 				}
 			}
+			if(swapped) break;
 		}
 		
 	    for(int i = 0; i < nums.length; i++) {
         	
-        	System.out.print(nums[i] + ' ');
+//        	System.out.print(nums[i] + ' '); ' ' is a char literal (ASCII 32).
+//        	So it actually prints numbers like (num + 32) (e.g. 3 becomes 35).
+	    	System.out.print(nums[i] + " ");
         }
 	}
 
+	public static void selectionSort(int[] nums) {
+		// sorting : Sorting is simple it is always O(n^2) in most of the cases, in some cases
+		// it would be O(nlogn). Okay but always remember one thing the way of sorting is important.
+		// that's why several algorithms were introduced. 
+		
+		// Selection Sort: 
+		
+		
+//		int min = nums[0]; // It will not work my brother since I need indexes not the value
+//		for(int i = 0; i < nums.length - 1; i++) {
+//			for(int j = i + 1; j < nums.length; j++) {
+//				if(nums[j] < min) {
+//					min = nums[j];
+//				}
+//			}
+//			int temp = nums[i];
+//			nums[i] = min;
+//			min = temp; // here, the swapping made senseless even though min = temp at new iteration it will be min = nums[i]
+//			
+//			// and it always be smallest number for multiple iterations you are essentially swapping all the numbers with minimum a smallest number
+//			// our goal is to find the smallest number in the inner loop
+//			
+//		}
+		
+		for(int i = 0; i < nums.length - 1; i++) {
+			int minIndex = i;
+			for(int j = i + 1; j < nums.length; j++) {
+				if(nums[j] < nums[minIndex]) {
+					minIndex = j;
+				}
+			}
+			int temp = nums[i];
+			nums[i] = nums[minIndex];
+			nums[minIndex] = temp;
+		}
+		
+		for(int i = 0; i < nums.length; i++) {
+			System.out.print(nums[i] + " "); // TC: O(n^2) for sorted arrays also
+		}
+	}
+	
+	public static void insertionSort(int[] nums) {
+		// here also swapping involved,
+		
+		for(int i = 0; i < nums.length; i++) {
+			int j = i;
+			//int minIndex = i;
+			while(j > 0 && nums[j] < nums[j - 1]) {
+				
+					int temp = nums[j-1];
+					nums[j-1] = nums[j];
+					nums[j] = temp;
+					j--;
+				
+			}
+			
+		}
+		
+		for(int i = 0; i < nums.length; i++) {
+			System.out.print(nums[i] + " ");
+		}
+	}
+	
+	public static void mergeSort(int[] nums) {
+		
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
         int[] nums = {3, 4, 1, 9, 5, 4};
-       bubbleSort(nums);
+      // bubbleSort(nums);
 //        for(int i = 0; i < val.length; i++) {
 //        	
 //        	System.out.print(val[i] + ' ');
 //        }
+       //selectionSort(nums);
+        
+        insertionSort(nums);
         
 	}
 
