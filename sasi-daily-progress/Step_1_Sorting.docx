@@ -1,5 +1,7 @@
 package p1;
 
+import java.util.Arrays;
+
 public class Sorting {
 	
 	public static void bubbleSort(int[] nums) {
@@ -87,7 +89,61 @@ public class Sorting {
 		}
 	}
 	
-	public static void mergeSort(int[] nums) {
+	
+	public static int[] mergeSort(int[] nums) {
+		// Merge Sorting Idea : The idea is to use divide and conquer algorithm, First divide your array into 2 halves
+		//So now think of 2 halves left, right - now you need to divide left half to 2 halves again, again that left half - 2 halves ..., until you reach 1 or 2 elements 
+		// now sort that elements by comparing if you have 2 elements - now after sorting done merge it back again compare and merge 
+		
+		if(nums.length <= 1) return nums;
+		
+		int mid = nums.length / 2;
+		
+		//  int[] slicedArray = Arrays.copyOfRange(originalArray, startIndex, endIndex);
+		
+		int[] leftHalf = Arrays.copyOfRange(nums, 0, mid);
+		
+		
+		int[] rightHalf = Arrays.copyOfRange(nums, mid, nums.length );
+		
+		
+		
+		int[] sortedLeft = mergeSort(leftHalf);
+		
+		int[] sortedRight = mergeSort(rightHalf);
+		
+		return merge(sortedLeft, sortedRight);
+		
+	}
+	
+	public static int[] merge(int[] left, int[] right) {
+		int[] result = new int[left.length + right.length];
+		
+		int i = 0, j = 0, k = 0;
+		
+		while(i < left.length && j < right.length) {
+			if(left[i] < right[j]) {
+				result[k] = left[i];
+				i++;
+			} else {
+				result[k] =  right[j];
+				j++;
+			}
+			k++;
+		}
+		
+		while(i < left.length) {
+				result[k] = left[i];
+				i++;
+				k++;
+			
+		} while(j < right.length) {
+			result[k] =  right[j];
+			j++;
+			k++;
+		}
+		
+		return result;
 		
 	}
 	
@@ -101,7 +157,35 @@ public class Sorting {
 //        }
        //selectionSort(nums);
         
-        insertionSort(nums);
+      //  insertionSort(nums);
+        
+       int[] res = mergeSort(nums);
+       
+//       int mid = nums.length / 2;
+//       
+//       
+//       
+//       int[] leftHalf = Arrays.copyOfRange(nums, 0, mid);
+//		
+//		for(int i = 0; i < leftHalf.length; i++) {
+//			System.out.print(leftHalf[i] + " ");
+//			
+//		}
+//		System.out.println();
+//		
+//		int[] rightHalf = Arrays.copyOfRange(nums, mid, nums.length );
+//		
+//		for(int i = 0; i < rightHalf.length; i++) {
+//			System.out.print(rightHalf[i] + " ");
+//		}
+       
+     
+       
+       
+       
+       for(int i = 0; i < res.length; i++) {
+    	   System.out.print(res[i] + " ");
+       }
         
 	}
 

@@ -45,3 +45,11 @@
 #NOV 7
 
 -- Today I solved Selection Sort, Insertion Sort problems
+
+#NOV 8
+
+-- I haven't solved anything!
+
+#NOV 9
+
+-- Today I solved Merge Sort problem
