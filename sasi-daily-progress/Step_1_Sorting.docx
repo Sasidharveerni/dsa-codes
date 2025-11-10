@@ -1,6 +1,7 @@
 package p1;
 
 import java.util.Arrays;
+import java.util.*;
 
 public class Sorting {
 	
@@ -147,6 +148,81 @@ public class Sorting {
 		
 	}
 	
+//	1. Sort by Frequency (Custom Comparator)
+//
+//	Given an array of integers, sort them by frequency (highest first).
+//	If two numbers have the same frequency, sort by value ascending.
+//	Example:
+//	Input → [4,4,1,2,2,3,3,3]
+//	Output → [3,3,3,4,4,2,2,1]
+//
+//	🧩 Concepts: HashMap + Comparator sorting (value-based sorting).
+	
+	public static void sortFrequency(int[] nums) {
+		// since it is a value based sorting I prefer to use insertion sorting 
+		
+		Map<Integer, Integer> map = new HashMap<>();
+		for(int i = 0; i < nums.length; i++) {
+			if(map.containsKey(nums[i])) {
+				map.put(nums[i], map.get(nums[i]) + 1);
+			} else {
+				map.put(nums[i],  1);
+			}
+		}
+		
+		// now I understand the problem I need to sort them by frequency - this is one kind of sorting
+		
+	// any way the relative order way of storing is in sorted order for hashmaps 
+		// ⚠️ Slight correction —
+//		HashMap in Java does not preserve any order (neither insertion nor sorted).
+//		If you want ordering:
+//
+//		Use LinkedHashMap (preserves insertion order).
+//
+//		Or TreeMap (keeps keys sorted).
+//		But for frequency sorting, you’ll usually use a List<Map.Entry<...>> → then apply sorting manually.
+		// but to sort frequency wise we must scan entire hash map - we should need one sorting algorithm
+		
+		// so I'm gonna use insertion sort
+		
+		for(int i = 0; i < nums.length; i++) {
+			int j = i;
+			while(j > 0 && map.get(nums[j]) > map.get(nums[j - 1])) {
+				
+			}
+		}
+		
+//		for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
+//			Integer Key = entry.getKey();
+//			Integer Value = entry.getValue();
+//			
+//			int i = 0;
+//			
+//			int j = i;
+//			
+//			while(j > 0 && nums[j] < nums[j])
+//			
+//			System.out.print(Key + ":" + Value + " ");
+//			
+//		}
+		
+//		for(int i = 0; i < nums.length; i++) {
+//			int j = i;
+//			while(j > 0 && nums[j] < nums[j - 1]) { // this condition is very important
+//				
+//				 int temp = nums[j - 1];
+//					nums[j - 1] = nums[j];
+//					nums[j] = temp;
+//				j--; // this one is also - for selection sort
+//			}
+//			
+//		}
+//		
+//		for(int i = 0; i < nums.length; i++) {
+//			System.out.print(nums[i] + " ");
+//		}
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
         int[] nums = {3, 4, 1, 9, 5, 4};
@@ -159,7 +235,7 @@ public class Sorting {
         
       //  insertionSort(nums);
         
-       int[] res = mergeSort(nums);
+    //   int[] res = mergeSort(nums);
        
 //       int mid = nums.length / 2;
 //       
@@ -180,13 +256,13 @@ public class Sorting {
 //		}
        
      
+       int res[] = {4,4,1,2,2,3,3,3};
+       sortFrequency(res);
        
-       
-       
-       for(int i = 0; i < res.length; i++) {
-    	   System.out.print(res[i] + " ");
-       }
-        
+//       for(int i = 0; i < res.length; i++) {
+//    	   System.out.print(res[i] + " ");
+//       }
+//        
 	}
 
 }

@@ -53,3 +53,7 @@
 #NOV 9
 
 -- Today I solved Merge Sort problem
+
+#Nov 10 
+
+-- Today I attempted frequency sort couldn't be able to finish, I think I need to figure out for more productivity day by day problem solving count is decreasing I set to solve 3 problems per day or atleast 2 problems... let's see from tomorrow onwards atleast...
