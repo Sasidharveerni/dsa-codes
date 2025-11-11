@@ -57,3 +57,7 @@
 #Nov 10 
 
 -- Today I attempted frequency sort couldn't be able to finish, I think I need to figure out for more productivity day by day problem solving count is decreasing I set to solve 3 problems per day or atleast 2 problems... let's see from tomorrow onwards atleast...
+
+#Nov 11
+
+-- Today I solved 3 sorting problems, I am feeling bit confident and feeling productive of myself, I solved all 3 of my own.. tomorrow I am going to solve another 3 problems ....

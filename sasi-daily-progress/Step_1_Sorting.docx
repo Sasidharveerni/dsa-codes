@@ -185,11 +185,20 @@ public class Sorting {
 		
 		// so I'm gonna use insertion sort
 		
+		
+		
 		for(int i = 0; i < nums.length; i++) {
 			int j = i;
 			while(j > 0 && map.get(nums[j]) > map.get(nums[j - 1])) {
-				
+				int temp = nums[j - 1];
+				nums[j - 1] = nums[j];
+				nums[j] = temp;
+				j--;
 			}
+		}
+		
+		for(int i = 0; i < nums.length; i++) {
+			System.out.print(nums[i] + " ");
 		}
 		
 //		for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
@@ -223,9 +232,82 @@ public class Sorting {
 //		}
 	}
 	
+// 2.	Sort 0s, 1s, and 2s (Dutch National Flag Problem)
+//
+//	Given an array with only 0s, 1s, 2s → sort them in-place without using built-in sort.
+//	Example:
+//	Input → [2,0,2,1,1,0]
+//	Output → [0,0,1,1,2,2]
+//
+//	🧩 Concepts: In-place partitioning, pointer-based sorting.
+	
+	public static int[] sortZeroOneTwos(int[] nums) {
+		
+		// shit , I forgot to add base condition
+		if(nums.length <= 1) return nums;
+		// so I can directly use sorting algorithm ?? I'll use merge sort since it's optimal
+		
+		// so what I need to make is recursive calls
+		
+		int mid = nums.length / 2;
+		
+		int[] leftHalf = Arrays.copyOfRange(nums, 0, mid);
+		int[] rightHalf = Arrays.copyOfRange(nums, mid , nums.length);
+		
+		int[]left = sortZeroOneTwos(leftHalf);
+		int[] right = sortZeroOneTwos(rightHalf);
+		
+		return merge(left, right);
+	}
+	
+//	Sort Characters by Frequency (String-based)
+//
+//	Sort characters in a string by descending frequency.
+//	Example:
+//	Input → "tree"
+//	Output → "eetr" or "eert"
+//
+//	🧩 Concepts: Counting frequency + sorting map entries.
+	
+	public static void sortStringFrequency(String val) {
+		Map<Character, Integer> map = new HashMap<>();
+		
+		for(int i = 0; i < val.length(); i++) {
+			if(map.containsKey(val.charAt(i))) {
+				map.put(val.charAt(i), map.get(val.charAt(i)) + 1);
+			} else {
+				map.put(val.charAt(i), 1);
+			}
+		}
+		
+		// we cannot use insertion sort bcoz insertion sort focuses on inplace sorting
+		// but strings are immutable so can't use insertion sort for strings
+		// but we can use string builder for string manipulation
+		
+		StringBuilder res = new StringBuilder(val);
+		for(int i = 0; i < val.length(); i++) {
+			int j = i;
+			while(j > 0 && map.get(res.charAt(j)) > map.get(res.charAt(j - 1))) {
+//				 String str = String.valueOf(res.charAt(j));
+				char temp = res.charAt(j - 1);
+				res.setCharAt(j - 1, res.charAt(j)); 
+				res.setCharAt(j, temp);
+				
+				
+				 // here I am struck at how to replace the string values just like nums
+				 j--;
+				// System.out.print(res+ " ");
+				
+			}
+		}
+		System.out.print(res + " ");
+		
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-        int[] nums = {3, 4, 1, 9, 5, 4};
+      //  int[] nums = {3, 4, 1, 9, 5, 4};
+		int[] nums = {2,0,2,1,1,0};
       // bubbleSort(nums);
 //        for(int i = 0; i < val.length; i++) {
 //        	
@@ -256,13 +338,20 @@ public class Sorting {
 //		}
        
      
-       int res[] = {4,4,1,2,2,3,3,3};
-       sortFrequency(res);
+//       int res[] = {4,4,1,2,2,3,3,3};
+//       sortFrequency(res);
        
 //       for(int i = 0; i < res.length; i++) {
 //    	   System.out.print(res[i] + " ");
 //       }
 //        
+//		int[] res = sortZeroOneTwos(nums);
+//		for(int i = 0; i < res.length; i++) {
+//			System.out.print(res[i] + " ");
+//		}
+		
+		String val = "tree";
+		sortStringFrequency(val);
 	}
 
 }
