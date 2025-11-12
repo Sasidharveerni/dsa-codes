@@ -304,6 +304,65 @@ public class Sorting {
 		
 	}
 	
+//	4. Merge Overlapping Intervals
+//
+//	Given intervals [[1,3],[2,6],[8,10],[15,18]], merge overlapping ones.
+//	Example:
+//	Output → [[1,6],[8,10],[15,18]]
+//
+//	🧩 Concepts: Sort by start time → then linear merge pass.
+	
+	// this I will attempt later 
+	
+//	5. Sort People by Height (Parallel Arrays / Pair Sorting)
+//
+//	You have 2 arrays — names[] and heights[].
+//	Sort names by height descending.
+//	Example:
+//	Input →
+//	names = ["Mary","John","Emma"]
+//	heights = [180,165,170]
+//	Output → ["Mary","Emma","John"]
+//
+//	🧩 Concepts: Pair sorting using custom comparator.
+	
+	// I am considering that both names and heights are same length so I can use one sorting algorithm directly.
+	
+	// always use insertion sort algorithm for in-place sorting algorithm, 
+	
+	// but we cannot use  merge sort -> since the comparision between two halves we cannot decide at how to allocate other names array which is string
+	
+	
+		
+	
+	public static void sortPeopleHeight(int[] heights, String[] names, int cases) {
+		
+	if(cases == 1) {
+		
+		for(int i = 0; i < heights.length; i++) {
+			int j = i;
+			while(j > 0 && heights[j] > heights[j-1]) {
+				String temp = names[j-1];
+				names[j-1] = names[j];
+				names[j] = temp;
+				j--;
+			}
+			
+		}
+		for(int i = 0; i < names.length; i++) {
+			System.out.print(names[i] + " ");
+		}
+	} else {
+		
+		
+		// Should add any other sorting technique
+		
+		
+	}
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
       //  int[] nums = {3, 4, 1, 9, 5, 4};
@@ -350,8 +409,14 @@ public class Sorting {
 //			System.out.print(res[i] + " ");
 //		}
 		
-		String val = "tree";
-		sortStringFrequency(val);
+//		String val = "tree";
+//		sortStringFrequency(val);
+		
+		int[] heights = {180, 165, 170};
+		String[] names = {"Mary","John","Emma"};
+		Scanner scanner = new Scanner(System.in);
+		int cases = scanner.nextInt();
+		sortPeopleHeight(heights, names, cases);
 	}
 
 }

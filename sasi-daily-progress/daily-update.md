@@ -61,3 +61,7 @@
 #Nov 11
 
 -- Today I solved 3 sorting problems, I am feeling bit confident and feeling productive of myself, I solved all 3 of my own.. tomorrow I am going to solve another 3 problems ....
+
+#Nov 12
+
+-- Today I solved only 1 problem, as I am engaged with different activities... 
