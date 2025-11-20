@@ -363,6 +363,154 @@ public class Sorting {
 		
 	}
 	
+//	6. Largest Number Formed from Array
+//
+//	Given [3,30,34,5,9], arrange numbers to form the largest number possible.
+//	Output → "9534330"
+//
+//	🧩 Concepts: Custom comparator sorting based on string concatenation order.
+	
+	public static String sortLargestNumbers(int[] nums) {
+		String res = "";
+		for(int i = 0; i < nums.length; i++) {
+			// 3 30 34 5 9 -> 3303459 , 34 30 9 5 3 -> 3430953, 
+			
+			// I couldn't think of any sorting algorithm to be applied here, actually if brute force is the case
+			// we need to check every possibility and compare the string with current formation
+			// but it will lead nums.length! -> O(n!), another method may be I struck here
+			
+			// 3 + 30 = 33 , 34 + 5 = 39 so 39 > 33 -> 345 > 330
+			
+			
+			int j = i;
+			
+//			while(j > 0 && (nums[j] + "" + nums[j-1]).compareTo(nums[j-1] + "" + nums[j]) > 0) {
+//				String ab = String.valueOf(nums[j]) + ""+ String.valueOf(nums[j-1]);
+//				String ba = String.valueOf(nums[j-1]) + "" + String.valueOf((nums[j]));
+//				
+//				if(ab.compareTo(ba) > 0) {
+//					res = ab + "" +ba;
+//				} else {
+//					res = ba+"" +ab;
+//				}
+//				
+//			}
+			
+//			First: Strings are compared lexicographically, not numerically
+//
+//			When you do:
+//
+//			"9".compareTo("34")
+//
+//
+//			Java compares characters from left to right, not full numeric values.
+//
+//			ASCII values:
+//
+//			'9' = 57
+//			'3' = 51
+//
+//
+//			So:
+//
+//			'9' > '3'
+//
+//
+//			Therefore:
+//
+//			"9".compareTo("34") > 0
+//
+//
+//			Because at index 0, '9' (57) is greater than '3' (51).
+//
+//			Thus:
+//
+//			"9" is lexicographically greater than "34"
+//
+//
+//			That’s why "9" comes before "34" in the sorted arrangement.
+//
+//			🔥 But here’s the IMPORTANT PART
+//
+//			This is NOT the comparison we use in the problem.
+//
+//			We are NOT comparing:
+//
+//			9 vs 34
+//
+//
+//			We compare:
+//
+//			👉 "9" + "34" = "934"
+//			👉 "34" + "9" = "349"
+//
+//			Then compare:
+//
+//			"934".compareTo("349") > 0
+//
+//
+//			Now why does this work?
+//
+//			Compare index 0: '9' vs '3' → '9' bigger
+//
+//			That’s enough → "934" > "349"
+//
+//			So "9" should be placed before "34" to form the largest concatenation.
+//
+//			This is the rule.
+//
+//			🧠 Why this comparator makes sense mathematically
+//
+//			Two options for ordering:
+//
+//			Order 1:
+//			a = "9"
+//			b = "34"
+//			Result if a first → 934
+//
+//			Order 2:
+//			b first → 349
+//
+//
+//			Which number is bigger?
+//
+//			934 > 349
+//
+//
+//			So we keep "9" before "34".
+//
+//			Lexicographic compare handles this naturally.
+			
+			while(j > 0 && ((nums[j] + "" + nums[j-1]).compareTo(nums[j-1] + "" + nums[j])) > 0) {
+				int temp = nums[j-1];
+				nums[j-1] = nums[j];
+				nums[j] = temp;
+				j--;
+			}
+			
+			
+		}
+		
+		for(int j = 0; j < nums.length; j++) {
+			res += nums[j];
+		}
+		return res;
+	}
+	
+//	Sort an Array After Mapping Function
+//
+//	Given array arr[] and mapping function f(x), sort the array by the values of f(x).
+//	Example:
+//	arr = [-4,-1,0,3,10], f(x) = x^2
+//	Output → [0, -1, 3, -4, 10] (because squares = [0,1,9,16,100] → sorted by f(x))
+//
+//	🧩 Concepts: Transform + sort + stable ordering.
+	
+	public static int[] sortMappingFunction(int[] arr,  String func) {
+		
+		return arr;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
       //  int[] nums = {3, 4, 1, 9, 5, 4};
@@ -412,11 +560,15 @@ public class Sorting {
 //		String val = "tree";
 //		sortStringFrequency(val);
 		
-		int[] heights = {180, 165, 170};
-		String[] names = {"Mary","John","Emma"};
-		Scanner scanner = new Scanner(System.in);
-		int cases = scanner.nextInt();
-		sortPeopleHeight(heights, names, cases);
+//		int[] heights = {180, 165, 170};
+//		String[] names = {"Mary","John","Emma"};
+//		Scanner scanner = new Scanner(System.in);
+//		int cases = scanner.nextInt();
+//		sortPeopleHeight(heights, names, cases);
+		
+		String r = sortLargestNumbers(nums);
+		
+		System.out.println(r);
 	}
 
 }
