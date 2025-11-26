@@ -69,3 +69,7 @@
 #Nov 21
 
 -- FInally after long break, I started with one problem.......
+
+#Nov 26
+
+-- Today I solved 3 more problems, since I am busy with ideathon unable to solve daily I need to solve regulary now!!!
