@@ -614,6 +614,79 @@ public class Sorting {
 		
 	}
 	
+//	10. Relative Sorting
+//
+//	Given two arrays A1[] and A2[]. Sort A1[] so that:
+//
+//	All elements in A2 appear first in the same order as A2.
+//
+//	The remaining elements appear at the end sorted ascendingly.
+//	Example:
+//	A1 = [2,1,2,5,7,1,9,3,6,8,8]
+//	A2 = [2,1,8,3]
+//	Output: [2,2,1,1,8,8,3,5,6,7,9]
+//
+//	🧩 Concepts: Counting + stable sorting + ordering constraints.
+	
+	public static int[] sortRelatively(int[] a1, int[] a2) {
+		// do I need to pull a2 arrays first in a1 then I should add infront of the a1 
+		// so we can use hashmap to scan and for repeated elements like first load hashmap with a2 
+		// then again scan a1 now you will get the frequency + already existing data of a2 
+		// next sort rem elements by insertion sort but before that load the final array
+		Map<Integer, Integer> hash = new HashMap<>();
+		int len = 0;
+		
+		for(int i = 0; i < a2.length; i++) {
+			if(hash.containsKey(a2[i])) {
+				continue;
+			} else {
+				hash.put(a2[i], 0);
+			}
+		}
+		for(int i = 0; i < a1.length; i++) {
+			if(hash.containsKey(a1[i])) {
+				hash.put(a1[i], hash.get(a1[i]) + 1);
+				len++;
+			} else {
+				continue;
+			}
+		}
+		int[] res = new int[a1.length];
+		int index = 0;
+		int[] leftover = new int[a1.length - len];
+		for(int i = 0; i < a2.length; i++) {
+			int val = hash.get(a2[i]);
+			while(val != 0) {
+				res[index++] = a2[i];
+				val--;
+			}
+            
+		} 
+		int k = 0;
+		for(int i = 0; i < a1.length; i++) {
+			if(hash.containsKey(a1[i])) {
+				continue;
+			} else {
+				
+				leftover[k++] = a1[i];
+			}
+		}
+		for(int i = 0; i < leftover.length; i++) {
+			int j = i;
+			while(j > 0 && leftover[j] < leftover[j-1]) {
+				int temp = leftover[j];
+				leftover[j] = leftover[j-1];
+				leftover[j-1] = temp;
+			}	
+		}
+		int ind = 0;
+		
+		for(int i = 0; i < leftover.length; i++) {
+			res[index++] = leftover[ind++];
+		}
+		return res;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
       //  int[] nums = {3, 4, 1, 9, 5, 4};
@@ -689,13 +762,23 @@ public class Sorting {
 //			System.out.print(val[i] + " ");
 //		}
 		
-		int[] arr3 = {1,2, 3,4,5, 6, 7, 30, 50};
+//		int[] arr3 = {1,2, 3,4,5, 6, 7, 30, 50};
+//		
+//		int[] val = sortKClosest(arr3, 3, 32);
+//		
+//		for(int i = 0; i < val.length; i++) {
+//			System.out.print(val[i] + " ");
+//		}
 		
-		int[] val = sortKClosest(arr3, 3, 32);
+		int[] a1 = {2,1,2,5,7,1,9,3,6,8,8};
+		int[] a2 = {2,1,8,3};
+		
+		int[] val = sortRelatively(a1, a2);
 		
 		for(int i = 0; i < val.length; i++) {
 			System.out.print(val[i] + " ");
 		}
+		
 	}
 
 }
