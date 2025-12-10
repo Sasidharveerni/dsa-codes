@@ -1,0 +1,49 @@
+package p1;
+
+import java.util.*;
+
+public class Arrays {
+	
+	public static void easyProblems(int[] nums, int option) {
+		if(option == 1) {
+			int maxi = 0;
+			for(int i = 0; i < nums.length; i++) {
+				if(nums[i] > maxi) {
+					maxi = nums[i];
+				}
+			}
+			System.out.println("Maximum number: "+ maxi);
+		} else if (option == 2) {
+			int min = Integer.MAX_VALUE;
+			int max = Integer.MIN_VALUE;
+			for(int i =0; i < nums.length; i++) {
+				if(nums[i] < min) {
+					min = nums[i];
+				} if(nums[i] > max) {
+					max = nums[i];
+				}
+			}
+			System.out.println("The second smallest number is: " + min);
+			System.out.println("The second largest number is: " + max);
+		} else if (option == 3) {
+			for(int i = 1; i < nums.length; i++) {
+				if(nums[i-1] > nums[i]) {
+					System.out.println("This is not a sorted array");
+					break;
+				}
+			}
+			System.out.println("This is a sorted array");
+		} else if(option == 4) {
+			for(int i = 0; i < nums.length; i++) {
+				// okay so let's get into thinking so left rotation requires swapping continuous swapping until first element reaches last element
+				// this is confusing every time .. actually this one need swapping definitely
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

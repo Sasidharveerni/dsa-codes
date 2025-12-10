@@ -77,3 +77,7 @@
 #Nov 27 (Nov 28 - 00:30) - still nov 27 midnight though
 
 -- Today I solved 1 more problem, marks the completion of all sorting problems except merge overlapping intervals that anyways cover in my next topic which is "Arrays"
+
+#DECEMBER 10 - Started Arrays
+
+-- Today I solved 3 basic questions of arrays, so after some gap I am solving so the logical pickup is slow. it's okay the reason for gap is: as we launched sri nrusimha seva samithi website officially so also busy with another website(Manadesham) launching.
