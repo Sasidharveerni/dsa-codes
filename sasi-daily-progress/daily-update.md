@@ -81,3 +81,7 @@
 #DECEMBER 10 - Started Arrays
 
 -- Today I solved 3 basic questions of arrays, so after some gap I am solving so the logical pickup is slow. it's okay the reason for gap is: as we launched sri nrusimha seva samithi website officially so also busy with another website(Manadesham) launching.
+
+#DECEMBER 29 - Solved 2 problems on the array
+
+-- Today I solved 2  problems based on the rotate an array by k times
