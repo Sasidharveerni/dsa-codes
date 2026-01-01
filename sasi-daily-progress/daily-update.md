@@ -85,3 +85,5 @@
 #DECEMBER 29 - Solved 2 problems on the array
 
 -- Today I solved 2  problems based on the rotate an array by k times
+
+#Jan 1, 2026 - Solved 2 array problems

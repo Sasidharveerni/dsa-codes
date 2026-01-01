@@ -72,16 +72,118 @@ public class Arrays {
 			end--;
 		}
 	}
+	
+	public static void moveAllZeroes(int[] nums) {
+		// I am thinking of 1 approach here -> store the zeroes in Treemap not hashmap, In treemap 
+		// the elements can be stored in the relative order
+//		Map<Integer, Integer> treemap = new TreeMap<>();
+//		
+//		for(int i = 0; i < nums.length; i++) {
+//			if(treemap.containsKey(nums[i])) {
+//				treemap.put(nums[i], treemap.get(nums[i]) + 1);
+//			} else {
+//				treemap.put(nums[i], 1);
+//			}
+//		}
+//		int index = 0;
+//		for(Map.Entry<Integer, Integer> entry : treemap.entrySet()) {
+//			int key = entry.getKey();
+//			int value = entry.getValue();
+//			
+//			
+//			if(key!= 0) {
+//				while(value >= 1) {
+//					nums[index] = key;
+//					value--; //oops this is blunder this block we should not use the relative order fails here itself only
+//					// actually this concept works on non duplicate elements otherwise it fails.
+//				}
+//			}
+//			index++;
+//		}
+//		
+//		for(int i = index; i < nums.length; i++) {
+//			nums[i] = 0;
+//		}
+//		
+		// You have to use two pointers for this -> move zeroes
+		
+		// If a problem says “maintain relative order”,
+		
+		// -> use Two pointers since Map just takes the space O(N), and two pointers is O(1)
+		
+		int right = 0;
+		for(int left = 0; left < nums.length; left++) {
+			if(nums[left] != 0) {
+				nums[right++] = nums[left];
+			}
+		}
+		
+		for(int i = right; i < nums.length; i++) {
+			nums[right++] = 0;
+		}
+		
+		for(int i = 0; i < nums.length; i++) {
+			System.out.print(nums[i] + " ");
+		}
+		
+	}
+	
+	public static void findUnion(int[] num1, int[] num2) {
+		// so obviously this num1, num2 - we need to find distinct elements and common elements with sizes of n and m
+		
+		// I can use LinkedHashMap for maintaining sorting order so the constraint should be on returning common & distinct elements in the sorting order
+		
+		Map<Integer, Integer> sortedOrder = new LinkedHashMap<>();
+		
+		String maxlen = (num1.length > num2.length) ? "num1" : "num2";
+		
+	//	if(maxlen == "num1") { // this string comparison is unsafe in java I should use .equals() probably
+			
+			for(int i = 0; i < num1.length; i++) {
+				if(sortedOrder.containsKey(num1[i])) {
+					sortedOrder.put(num1[i], sortedOrder.get(num1[i]) + 1);
+				} else {
+					sortedOrder.put(num1[i], 1);
+				}
+			}
+	
+			for(int i = 0; i < num2.length; i++) {
+				if(sortedOrder.containsKey(num2[i])) {
+					sortedOrder.put(num2[i], sortedOrder.get(num2[i]) + 1);
+				} else {
+					sortedOrder.put(num2[i], 1);
+				}
+			}
+		
+		for(Map.Entry<Integer, Integer> entry : sortedOrder.entrySet()) {
+			System.out.print(entry.getKey() + " ");
+		}
+		// Now This will print the both common and distinct elements
+		
+		// but the optimal solution for this using Set, since set will not allow duplicates..
+		
+		// only union -> Set, union + order -> LinkedHashSet, union + sorted -> TreeSet
+		
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
+//		
+//		int[] nums = {1, 2, 3, 4, 5};
+//		
+//		int option = sc.nextInt();
+//		
+//		easyProblems(nums, option);
 		
-		int[] nums = {1, 2, 3, 4, 5};
+		int[] nums = {1 ,0 ,2 ,3 ,0 ,4 ,0 ,1};
 		
-		int option = sc.nextInt();
+		moveAllZeroes(nums);
 		
-		easyProblems(nums, option);
+		int[] num1 = {1,2,3,4,5};
+		int[] num2 = {2,3,4,4,5};
+		
+		findUnion(num1, num2); 
 
 	}
 
