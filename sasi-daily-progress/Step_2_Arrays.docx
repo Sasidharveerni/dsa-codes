@@ -176,15 +176,93 @@ public class Arrays {
 //		
 //		easyProblems(nums, option);
 		
-		int[] nums = {1 ,0 ,2 ,3 ,0 ,4 ,0 ,1};
+		int[] nums = {1 ,1 ,0 ,1};
 		
-		moveAllZeroes(nums);
+//		moveAllZeroes(nums);
+//		
+//		int[] num1 = {1,2,3,4,5};
+//		int[] num2 = {2,3,4,4,5};
+//		
+//		findUnion(num1, num2); 
 		
-		int[] num1 = {1,2,3,4,5};
-		int[] num2 = {2,3,4,4,5};
-		
-		findUnion(num1, num2); 
+		   int maxCnt = 0;
+	        int oneCnt = 0;
+	        for(int right = 0; right <= nums.length - 1; right++) {
+	            if(nums[right] != 1) {
+	                oneCnt = 0;
+	            }
+	            oneCnt += 1;
+	            System.out.println(oneCnt);
+	            maxCnt = Math.max(maxCnt, oneCnt);
+	            System.out.println(maxCnt);
+	        }
+System.out.println(maxCnt);
 
 	}
 
 }
+
+class Solution {
+    public int singleNumber(int[] nums) {
+        // interesting: xor operation -> xor of 2 "same" numbers is the number itself,
+        // Two important properties of XOR are the following:
+// XOR of two same numbers is always 0 i.e. a ^ a = 0. ←Property 1.
+// XOR of a number with 0 will result in the number itself i.e. 0 ^ a = a. ←Property 2 
+int i = 0;
+int xor = nums[i];
+    while(i < nums.length - 1) {
+        xor = xor ^ nums[i+1];
+        i++;
+    }
+    return xor;
+    }
+    
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int maxCnt = 0;
+        int oneCnt = 0;
+        for(int right = 0; right <= nums.length - 1; right++) {
+            if(nums[right] != 1) {
+                oneCnt = 0;
+            }
+         else {
+         oneCnt += 1;
+         }   
+            
+            maxCnt = Math.max(maxCnt, oneCnt);
+        }
+        return maxCnt;
+    }
+    public int findMaxLenSubArray(int[] nums, int k) {
+    	int sum = 0;
+    	int maxLen = 0;
+//    	int cnt = 0;
+//    	// here I need to make sure -> nums[0] + nums[1]  == k ? sum = sum - nums[0], nums[1] + nums[2]
+//    	// + nums[3] 
+    	int right = 0;
+//    	for(int i = 0; i < nums.length; i++) {
+//    		sum += nums[i];
+//    		cnt++;
+//    		if(sum == k) {
+//    			sum = sum - nums[right];
+//    			maxLen = Math.max(maxLen, cnt);
+//    			right++;
+//    		}
+//    	}
+//    	return maxLen;
+    	for(int i = 0; i < nums.length; i++) {
+    		sum += nums[i];
+    		
+    		while(sum > k) {
+    			sum -= nums[right];
+    			right++;
+    		}
+    		if(sum == k) {
+    			maxLen = Math.max(maxLen, i - right + 1);
+    		}
+    	}
+    	return maxLen;
+    	
+    }
+}
+
+
